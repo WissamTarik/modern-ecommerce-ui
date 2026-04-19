@@ -3,10 +3,10 @@ import { Navbar } from "@components/Navbar/Navbar";
 import { Roboto } from 'next/font/google';
 import { Footer } from "@components/Footer/Footer";
 import { Toaster } from "@/components/ui/sonner"
-import "../app/globals.css"
+import "./globals.css";
 import MySessionProvider from "./_components/MySessionProvider/MySessionProvider";
 
-
+export const dynamic = "force-dynamic";
 const roboto=Roboto({
   weight:['400','500','700'],
   subsets:['latin'],
