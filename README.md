@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛒 Fresh Cart Storefront
 
-## Getting Started
+Fresh Cart is a professional-grade, high-performance E-commerce storefront built with **Next.js 15**, **TypeScript**, and **Tailwind CSS**. This project demonstrates a scalable Frontend architecture, focusing on optimized data fetching, robust state management, and a seamless user experience.
 
-First, run the development server:
+## 🚀 Live Demo
+**[Insert Your Vercel Deployment Link Here]**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+* **Framework:** Next.js 15 (App Router)
+* **Language:** TypeScript
+* **Styling:** Tailwind CSS + Shadcn/UI
+* **Authentication:** Next-Auth (Auth.js)
+* **Forms & Validation:** React Hook Form + Zod
+* **Icons:** Lucide-React & React Icons
+* **State Management:** React Context API
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## ✨ Key Technical Features
 
-To learn more about Next.js, take a look at the following resources:
+### 🔍 Dynamic URL-Based Filtering
+Implemented a sophisticated filtering system using a custom `useFilter` hook. It synchronizes the UI state (Categories, Brands, Search) directly with URL search parameters, making the user's view fully shareable and bookmarkable without unnecessary page reloads.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### ⚡ Parallel Data Fetching
+Optimized server-side performance by implementing `Promise.all` in Server Components. This allows categories, brands, products, and user-specific data (like wishlists) to be fetched simultaneously, drastically reducing the total Time to First Byte (TTFB).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 🛡️ Secure Route Middleware
+A custom middleware layer manages authentication flows:
+* Redirects authenticated users away from login/register pages.
+* Protects private routes (Wishlist, Cart) by redirecting unauthenticated users to the login page.
+* Exempts static assets and API routes to ensure zero performance overhead on internal Next.js requests.
 
-## Deploy on Vercel
+### 🔌 Standardized API Client
+Built a unified `apiClient` using the Fetch API that handles:
+* Automatic injection of Bearer tokens for authorized requests.
+* Standardized error handling and JSON parsing.
+* Protection against non-JSON responses (HTML error pages) from the backend.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 📱 Responsive Design
+A mobile-first approach using Tailwind CSS, featuring a responsive sidebar for filters on desktop and a smooth Slide-over Sheet for mobile users.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 📦 Installation & Setup
+
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/WissamTarik/modern-ecommerce-ui.git
+    ```
+
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+
+3.  **Set up Environment Variables:**
+    Create a `.env` file in the root directory and add the following:
+    ```env
+    NEXT_PUBLIC_API_BASE_URL=[https://ecommerce.routemisr.com](https://ecommerce.routemisr.com)
+    NEXTAUTH_URL=http://localhost:3000
+    NEXTAUTH_SECRET=your_generated_secret_key
+    ```
+
+4.  **Run the development server:**
+    ```bash
+    npm run dev
+    ```
+
+---
+
+## 🏗️ Folder Structure Highlights
+
+* `src/app/api/auth/[...nextauth]` - Next-Auth route configuration.
+* `src/app/(Home)/_components/FilterSidebar` - Core filtering logic and UI.
+* `src/utils/apiClient.ts` - Centralized API logic.
+* `src/middleware.ts` - Route protection and redirection logic.
+
+---
+
+## 👨‍💻 Author
+**Wissam Tarik**
+
+* **GitHub:https://github.com/WissamTarik
+
+---
+
+## 📄 License
+This project is licensed under the MIT License.
