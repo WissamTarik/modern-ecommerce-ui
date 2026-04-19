@@ -1,7 +1,7 @@
 import { getApiBaseUrl } from "./api";
 import { getAuthHeaders } from "./auth";
 
-const baseUrl=getApiBaseUrl()
+const baseUrl=getApiBaseUrl()||"https://ecommerce.routemisr.com"
 type FetchOptions=RequestInit&{
     useAuth?:boolean,
     nextOptions?:NextFetchRequestConfig
