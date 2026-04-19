@@ -2,20 +2,13 @@
 
 import { Button } from '@/components/ui/button'
 import { CartContext } from '@/Contexts/CartContextProvider'
-import { getUserCart } from '@/Services/Cart.services'
 import { ShoppingCart } from 'lucide-react'
-import { useSession } from 'next-auth/react'
 import Link from 'next/link'
-import { useContext, useEffect } from 'react'
+import { useContext, } from 'react'
 
 export default function NavbarCartBtn() {
-    const {cartCount,updateCartCount}=useContext(CartContext)
-  const {status}=useSession()
-  useEffect(() => {
-     if(status=="authenticated"){
-      getUserCart().then((response)=>updateCartCount(response?.numOfCartItems||0))
-     }
-  }, [status])
+    const {cartCount}=useContext(CartContext)
+ 
   
   return (
  <>
