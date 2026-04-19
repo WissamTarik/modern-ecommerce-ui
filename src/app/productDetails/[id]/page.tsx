@@ -6,6 +6,9 @@ import {  ArrowLeft} from 'lucide-react'
 import ReviewSection from './ReviewSection'
 import ProductDetailsInfo from './ProductDetailsInfo'
 import { getSpecificProducts } from '@/Services/Products.services'
+export const dynamicParams = true; 
+
+export const dynamic = 'force-dynamic';
 export async function generateMetadata({params}:{params:{id:string}}) {
   const {id}=await params
   const product=await getSpecificProducts(id)

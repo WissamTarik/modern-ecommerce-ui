@@ -7,7 +7,7 @@ import { getUserToken } from "@/utiiles/utilites";
 import { getLoggedUserWishlist } from "@/Services/Wishlist.services";
 import { ProductResponseType } from "@/types/Product.types";
 import { serializeSearchParams } from "@/utiiles/url";
-
+export const dynamic = 'force-dynamic'; 
 export default async function Home({searchParams}:{searchParams:any}) {
   const resolvedParams=await searchParams
 
