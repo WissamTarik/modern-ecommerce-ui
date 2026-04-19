@@ -3,7 +3,7 @@
 import { getLoggedUserWishlist } from '@/Services/Wishlist.services'
 import WishlistCard from './WishlistCard'
 import EmptyWishlist from './EmptyWishlist'
-
+export const dynamic = "force-dynamic";
 export const metadata={
   title:"Wishlist"
 }
