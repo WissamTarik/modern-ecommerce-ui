@@ -3,7 +3,7 @@
 Fresh Cart is a professional-grade, high-performance E-commerce storefront built with **Next.js 15**, **TypeScript**, and **Tailwind CSS**. This project demonstrates a scalable Frontend architecture, focusing on optimized data fetching, robust state management, and a seamless user experience.
 
 ## 🚀 Live Demo
-**[Insert Your Vercel Deployment Link Here]**
+**https://modern-ecommerce-ui-ruby.vercel.app/**
 
 ---
 
