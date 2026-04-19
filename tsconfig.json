@@ -20,7 +20,11 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
-      "@/components": ["./src/_components"],
+      "@components/*": ["./src/app/_components/*"],
+      "@auth/*": ["./src/app/(Auth)/*"],
+      "@skeletons/*": ["./src/app/_skeletons/*"],
+      "@services/*": ["./src/services/*"],
+      "@utils/*": ["./src/utils/*"]
     }
   },
   "include": [
