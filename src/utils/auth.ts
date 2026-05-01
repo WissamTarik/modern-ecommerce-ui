@@ -1,15 +1,17 @@
-"use server"
+import { nextAuthConfig } from "@/components/next-auth/nextAuth.config";
+import { getServerSession } from "next-auth";
+import { getSession } from "next-auth/react";
 
-import { getUserToken } from "@/utiiles/utilites"
-
-export async function getAuthHeaders(){
-    let token=await getUserToken()
-    
-  if (!token) {
-    token=""
+export async function getAuthHeaders() {
+  let session;
+  
+  if (typeof window === "undefined") {
+    session = await getServerSession(nextAuthConfig);
+  } else {
+    session = await getSession();
   }
- return{
-    token,
-    "Content-Type":"application/json"
- }
+
+  const token = session?.user?.token;
+
+  return token ? { "token": token } : {}; 
 }

@@ -26,10 +26,10 @@ export async function apiClient<T>(endpoint:string,options:FetchOptions={}) {
         const result=await response.json()
         
         
-        if(!response.ok){
-            console.error(`API Error [${endpoint}]:`, result.message || response.statusText);
-             return result as T
-        }
+      if(!response.ok){
+    console.error(`API Error [${endpoint}]:`, result.message || response.statusText);
+    return result as T 
+}
         return result
     } catch (error) {
         console.error(`Fetch Exception [${endpoint}]:`, error);
