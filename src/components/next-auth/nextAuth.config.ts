@@ -18,14 +18,14 @@ export const nextAuthConfig:NextAuthOptions={
     const result = await apiClient<any>(`/api/v1/auth/signin`, {
       method: "POST",
       body: JSON.stringify(credentials),
-      useAuth: false // مهم جداً هنا
+      useAuth: false  
     });
 
     if (result && result.message === "success" && result.token) {
       const decodedToken: any = jwtDecode(result.token);
       
       return {
-        id: decodedToken.id || result.user._id, // تأكد من وجود ID
+        id: decodedToken.id || result.user._id, 
         ...result.user,
         token: result.token
       };

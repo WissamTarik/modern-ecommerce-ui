@@ -1,17 +1,18 @@
-import { nextAuthConfig } from "@/components/next-auth/nextAuth.config";
+"use server"
 import { getServerSession } from "next-auth";
-import { getSession } from "next-auth/react";
+import { nextAuthConfig } from "@/components/next-auth/nextAuth.config";
 
 export async function getAuthHeaders() {
-  let session;
-  
-  if (typeof window === "undefined") {
-    session = await getServerSession(nextAuthConfig);
-  } else {
-    session = await getSession();
-  }
-
+  // getServerSession is the most reliable way to get the session on the server
+  const session = await getServerSession(nextAuthConfig);
   const token = session?.user?.token;
 
-  return token ? { "token": token } : {}; 
+  if (token) {
+    return {
+      "token": token,
+      "Content-Type": "application/json",
+    };
+  }
+
+  return { "Content-Type": "application/json" };
 }

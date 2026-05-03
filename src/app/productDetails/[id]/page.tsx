@@ -9,7 +9,7 @@ import { getSpecificProducts } from '@/Services/Products.services'
 export const dynamicParams = true; 
 
 export const dynamic = 'force-dynamic';
-export async function generateMetadata({params}:{params:{id:string}}) {
+export async function generateMetadata({params}:{params: Promise<{id: string}>}) {
   const {id}=await params
   const product=await getSpecificProducts(id)
   if(!product) 
@@ -24,7 +24,7 @@ export async function generateMetadata({params}:{params:{id:string}}) {
     }
   }
 }
-export default async function ProductDetails({params}:{params:{id:string}}) {
+export default async function ProductDetails({params}:{params: Promise<{id: string}>}) {
     const {id}=await params
 
     

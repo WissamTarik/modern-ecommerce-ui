@@ -50,7 +50,7 @@ export async function deleteProductReview(reviewId:string):Promise<DeleteProduct
         const authHeaders=await getAuthHeaders()
         const response=await fetch(`${baseUrl}/api/v1/reviews/${reviewId}`,{
             method:"DELETE",
-            headers:authHeaders
+            headers:authHeaders as Record<string, string>
         })
         if(response.ok)
         {                         
